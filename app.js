@@ -124,7 +124,36 @@ function displayBooks() {
         //Creates template Element
         const libraryItem = document.createElement("div");
         libraryItem.setAttribute("class", "libraryItem");
-        libraryItem.textContent = element.info();
+
+        const titleDisplay = document.createElement("div");
+        titleDisplay.setAttribute("class","bookTitle");
+        titleDisplay.textContent = element.title;
+        libraryItem.appendChild(titleDisplay);
+
+        const authorDisplay = document.createElement("div");
+        authorDisplay.setAttribute("class","bookAuthor");
+        authorDisplay.textContent = "by "+element.author;
+        libraryItem.appendChild(authorDisplay);
+
+        const pagesDisplay = document.createElement("div");
+        pagesDisplay.setAttribute("class","bookPages");
+        pagesDisplay.textContent = "Pages: "+element.pages;
+        libraryItem.appendChild(pagesDisplay);
+
+        const readDisplay = document.createElement("input");
+        readDisplay.setAttribute("class","bookRead");
+        readDisplay.setAttribute("type","checkbox");
+        readDisplay.checked=element.read;
+
+        readDisplay.addEventListener("change", () => {
+            element.read = readDisplay.checked; 
+            displayBooks(); 
+        });
+        
+       
+
+        libraryItem.appendChild(readDisplay);
+
         library.appendChild(libraryItem);
     });
 

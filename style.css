@@ -4,8 +4,8 @@
 }
 :root{
     --var-background-dark: #333138;
-    --var-text-dark: #b4b5ee;
-    --var-border-dark: #6b49e6;
+    --var-text-dark: #f4f4f8;
+    --var-border-dark: #f7f7fa;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -21,33 +21,30 @@ body{
 }
 
 .library{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    width: 60vw;
+    grid-template-columns: 1fr 1fr;
     gap: 5px;
 }
 
 .libraryItem{
-    height: 150px;
-    width: 150px;
-    max-height: 150px;
-    max-width: 150px;
+    height: 100px;
     padding: 5px;
     border: 3px solid var(--var-border-dark);
-    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 90% 10%;
 }
 
 .libraryItem.addButtonC{
-    height: 160px;
-    width: 160px;
-    max-height: 160px;
-    max-width: 160px;
+    height: 110px;
     padding: 0;
     overflow: hidden;
 }
 
 .addButton{
-    height: 160px;
-    width: 160px;
+    grid-column: 1/ 3;
+    height: 110px;
+    width: 100%;
     background: none;
 	color: inherit;
 	border: none;
@@ -55,4 +52,57 @@ body{
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.bookTitle{
+    grid-column: 1 / 3;
+    font-size: large;
+    font-weight: bold;
+}
+
+.bookAuthor{
+    grid-column: 1 / 3;
+    grid-row-start: 2;
+    padding-left: 5px;
+}
+
+.bookPages{
+    grid-row-start: 3;
+    font-size: x-small;
+    justify-self: left;
+    align-self: self-end;
+}
+
+.bookRead{
+    grid-row-start: 3;
+    grid-column-start: 2;
+    justify-self: right;
+    align-self: self-end;
+    /* Custom Styling */
+    appearance: none; /* Removes default browser styling */
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--var-border-dark);
+    border-radius: 5px;
+    background-color: var(--var-background-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Custom style when checked */
+.bookRead:checked {
+    background-color: var(--var-border-dark); /* Change background when checked */
+    border-color: var(--var-border-dark)
+}
+
+/* Adding a checkmark */
+.bookRead:checked::before {
+    content: "✔"; /* Unicode checkmark */
+    color: var(--var-background-dark); /* Change checkmark color */
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
 }
