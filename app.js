@@ -38,7 +38,7 @@ function addBookToLibrary(title, author, pages, read) {
 function AddLibrary() {
 
     const addBookDiv = document.createElement("div");
-    addBookDiv.setAttribute("class", "libraryItem addButton");
+    addBookDiv.setAttribute("class", "libraryItem addButtonC");
 
     const addBookBtn = document.createElement("button");
     addBookBtn.textContent = "+";
