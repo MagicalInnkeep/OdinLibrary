@@ -149,11 +149,23 @@ function displayBooks() {
             element.read = readDisplay.checked; 
             displayBooks(); 
         });
-        
-       
 
         libraryItem.appendChild(readDisplay);
+        
+        const deleteBook = document.createElement("button");
+        deleteBook.setAttribute("class","deleteBook");
+        deleteBook.textContent="-";
 
+        deleteBook.addEventListener('click', (event)=>{
+                const bookIndex = myLibrary.indexOf(element); 
+                if (bookIndex !== -1) {
+                    myLibrary.splice(bookIndex, 1); 
+                }
+                displayBooks();
+            });
+        
+        libraryItem.appendChild(deleteBook);
+  
         library.appendChild(libraryItem);
     });
 
@@ -165,8 +177,6 @@ function displayBooks() {
 //--------------------------
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, 1);
-addBookToLibrary("Lord Of the Rings", "J.R.R. Tolkien", 900, 1);
-addBookToLibrary("Lord Of the Flies", "unknown", 111, 0);
 
 //--------------------------
 //  Main
