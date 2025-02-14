@@ -1,25 +1,28 @@
 //--------------------------
-//  Global scope Variables
+//  Class
 //--------------------------
 
 //Array to keep track of stored goods
 const myLibrary = [];
 const library = document.querySelector(".library");
-
 //--------------------------
 // Constructors
 //--------------------------
 
-function Book(title, author, pages, read) {
+class Book{
+
+constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
 };
 
-Book.prototype.info = function () {
+info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? "read" : "not read yet"}`;
 };
+
+}
 
 //--------------------------
 // Library Functions
@@ -36,6 +39,7 @@ function addBookToLibrary(title, author, pages, read) {
 //--------------------------
 
 function AddLibrary() {
+
 
     const addBookDiv = document.createElement("div");
     addBookDiv.setAttribute("class", "libraryItem addButtonC");
@@ -115,6 +119,7 @@ function AddLibrary() {
 }
 
 function displayBooks() {
+
     //Clears item before loading new status
     library.innerHTML = "";
 

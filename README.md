@@ -32,3 +32,5 @@ You will need to associate your DOM elements with the actual book objects in som
 To facilitate this you will want to create Book prototype function that toggles a book instance’s read status.
 
 You’re not required to add any type of storage right now to save the information between page reloads. You will have the option to come back to this project later on in the course.
+
+&#x2611; Refactor to classes
